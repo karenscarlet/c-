@@ -1,0 +1,43 @@
+ #include <iostream>
+using namespace std;
+
+bool esCapicua(int numero) {
+    int original = numero;
+    int invertido = 0;
+
+    // Invertir el número
+    while (numero > 0) {
+        int digito = numero % 10;
+        invertido = invertido * 10 + digito;
+        numero /= 10;
+    }
+
+    // Verificar si es capicúa
+    return original == invertido;
+}
+
+int main() {
+    int numero;
+
+    cout << "===================================" << endl;
+    cout << "   Verificador de Número Capicúa   " << endl;
+    cout << "===================================" << endl;
+
+    // Solicitar el número al usuario
+    cout << "Ingrese un número: ";
+    cin >> numero;
+
+    // Verificar si es capicúa
+    if (esCapicua(numero)) {
+        cout << "El número " << numero << " es Capicúa." << endl;
+    } else {
+        cout << "El número " << numero << " no es Capicúa." << endl;
+    }
+
+    // Mensaje de finalización
+    cout << "===================================" << endl;
+    cout << "   Programa Finalizado" << endl;
+    cout << "===================================" << endl;
+
+    return 0;
+}
