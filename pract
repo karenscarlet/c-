@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+
+    // Solicitar al usuario un número positivo
+    do {
+        cout << "Ingresa un número positivo: ";
+        cin >> n;
+        if (n < 0) {
+            cout << "El número debe ser positivo. Intenta de nuevo." << endl;
+        }
+    } while (n < 0);
+
+    // Iniciar la cuenta regresiva
+    cout << "Cuenta regresiva:" << endl;
+
+    for (int i = n; i >= 0; i--) {
+        cout << i << endl;
+    }
+
+    cout << "¡Despegue!" << endl;
+
+    return 0;
+}
