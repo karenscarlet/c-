@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void jugarAdivinaElNumero() {
+    srand(time(0));
+    int secreto = rand() % 100 + 1;
+    int intento, intentos = 0;
+    char jugarDeNuevo;
+
+    cout << "\n=== Juego de Adivinanza ===" << endl;
+    cout << "Adivina el número entre 1 y 100. Tienes 10 intentos." << endl;
+
+    while (intentos < 10) {
+        cout << "Intento #" << (intentos + 1) << ": ";
+        cin >> intento;
+        intentos++;
+
+        if (intento == secreto) {
+            cout << "¡Correcto! Lo lograste en " << intentos << " intento(s)." << endl;
+            break;
+        } else if (intento < secreto) {
+            cout << "Demasiado bajo. ¡Intenta de nuevo!" << endl;
+        } else {
+            cout << " Demasiado alto. ¡Intenta de nuevo!" << endl;
+        }
+    }
+
+    if (intentos == 10 && intento != secreto) {
+        cout << " Perdiste. El número era: " << secreto << endl;
+    }
+
+    cout << "¿Quieres jugar otra vez? (s/n): ";
+    cin >> jugarDeNuevo;
+    if (jugarDeNuevo == 's' || jugarDeNuevo == 'S') {
+        jugarAdivinaElNumero();
+    } else {
+        cout << "Gracias por jugar. ¡Hasta la próxima!" << endl;
+    }
+}
+
+int main() {
+    jugarAdivinaElNumero();
+    return 0;
+}
